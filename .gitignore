@@ -9,3 +9,25 @@ buildNumber.properties
 .mvn/timing.properties
 # https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
+
+./**/mvnw*.*
+/gulimall-member/.gitignore
+/gulimall-coupon/.gitignore
+/gulimall-order/.gitignore
+/.idea/.gitignore
+/gulimall-product/.gitignore
+/gulimall-ware/.gitignore
+/.idea/checkstyle-idea.xml
+/.idea/compiler.xml
+/.idea/encodings.xml
+/.idea/dictionaries
+/gulimall-order/mvnw
+/gulimall-order/.mvn/wrapper/maven-wrapper.properties
+/gulimall-coupon/.mvn/wrapper/maven-wrapper.jar
+/gulimall-coupon/.mvn/wrapper/maven-wrapper.jar
+/gulimall-coupon/.mvn/wrapper/maven-wrapper.jar
+/.idea/modules.xml
+/.idea/misc.xml
+/.idea/jarRepositories.xml
+/.idea/vcs.xml
+/.idea/
