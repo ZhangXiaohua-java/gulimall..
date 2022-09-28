@@ -20,7 +20,7 @@
         <module>gulimall-product</module>
         <module>gulimall-ware</module>
         <module>commons</module>
-
+        <module>code-generator</module>
     </modules>
 
     <dependencyManagement>
