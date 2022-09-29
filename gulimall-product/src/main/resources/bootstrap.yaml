@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: guli-product
+
+  profiles:
+    active: dev
+
+  cloud:
+    nacos:
+      config:
+        server-addr: 192.168.56.2:8848
+        namespace: 4c2d7013-05c4-4037-8aa4-0cfa8d964c64
+        group: JAVA_GROUP
+        file-extension: yaml
+#        \u591A\u914D\u7F6E\u96C6
+        extension-configs:
+          - data-id: product-datasource.yaml
+            refresh: true
+            group: JAVA_GROUP
+      #        \u57FA\u4E8Enamespace\u7684\u914D\u7F6E\u548C\u670D\u52A1\u6CE8\u518C\u53D1\u73B0\u7684\u9694\u79BB
+      discovery:
+        namespace: 4c2d7013-05c4-4037-8aa4-0cfa8d964c64
+        group: JAVA_GROUP
+        server-addr: 192.168.56.2:8848
+      username: nacos
+      password: nacos
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+server:
+  port: 8000
+

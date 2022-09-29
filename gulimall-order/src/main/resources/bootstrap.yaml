@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: guli-order
+
+  profiles:
+    active: dev
+
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      config:
+        server-addr: 192.168.56.2:8848
+        namespace: 4c2d7013-05c4-4037-8aa4-0cfa8d964c64
+        group: JAVA_GROUP
+        file-extension: yaml
+        extension-configs:
+          - data-id: order-datasource.yaml
+            refresh: true
+            group: JAVA_GROUP
+      discovery:
+        server-addr: 192.168.56.2:8848
+        group: JAVA_GROUP
+        namespace: 4c2d7013-05c4-4037-8aa4-0cfa8d964c64
+
+server:
+  port: 7000

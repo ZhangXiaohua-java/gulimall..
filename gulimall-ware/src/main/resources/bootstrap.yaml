@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: guli-ware
+
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      config:
+        server-addr: 192.168.56.2:8848
+        group: JAVA_GROUP
+        namespace: 4c2d7013-05c4-4037-8aa4-0cfa8d964c64
+        extension-configs:
+          - data-id: ware-datasource.yaml
+            group: JAVA_GROUP
+            refresh: true
+      discovery:
+        server-addr: 192.168.56.2:8848
+        group: JAVA_GROUP
+        namespace: 4c2d7013-05c4-4037-8aa4-0cfa8d964c64
+
+server:
+  port: 11000
+
