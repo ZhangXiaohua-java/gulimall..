@@ -63,6 +63,12 @@
             <artifactId>commons</artifactId>
             <version>0.1</version>
         </dependency>
+        <dependency>
+            <groupId>cloud.huel.mall</groupId>
+            <artifactId>commons</artifactId>
+            <version>0.1</version>
+        </dependency>
+
     </dependencies>
 
     <build>

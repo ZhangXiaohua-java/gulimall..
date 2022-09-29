@@ -55,6 +55,12 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>cloud.huel.mall</groupId>
+			<artifactId>commons</artifactId>
+			<version>0.1</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
