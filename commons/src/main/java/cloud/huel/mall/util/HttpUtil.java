@@ -2,10 +2,7 @@ package cloud.huel.mall.util;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.config.ConnectionConfig;
-import org.apache.http.config.Registry;
 import org.apache.http.config.SocketConfig;
-import org.apache.http.conn.HttpClientConnectionManager;
-import org.apache.http.conn.socket.ConnectionSocketFactory;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
@@ -28,7 +25,7 @@ public final class HttpUtil {
 
 	private static LinkedBlockingDeque<HttpClient> httpClients;
 
-	private static ThreadLocal<Integer> threadLocal = new ThreadLocal(){
+	private static ThreadLocal<Integer> threadLocal = new ThreadLocal() {
 		@Override
 		protected Object initialValue() {
 			return Integer.valueOf(0);
@@ -42,11 +39,11 @@ public final class HttpUtil {
 		connectionManager.setDefaultMaxPerRoute(10);
 		connectionManager.setMaxTotal(100);
 		ConnectionConfig connectionConfig = ConnectionConfig.custom()
-						.setCharset(Charset.forName("UTF-8"))
-								.build();
+				.setCharset(Charset.forName("UTF-8"))
+				.build();
 		SocketConfig socketConfig = SocketConfig.custom()
-						.setSoTimeout(3000)
-								.setSoKeepAlive(true).build();
+				.setSoTimeout(3000)
+				.setSoKeepAlive(true).build();
 		connectionManager.setDefaultConnectionConfig(connectionConfig);
 		connectionManager.setDefaultSocketConfig(socketConfig);
 		initialize();
@@ -54,6 +51,7 @@ public final class HttpUtil {
 
 	/**
 	 * 获取连接资源
+	 *
 	 * @return
 	 */
 	private static HttpClient getResource() {
@@ -78,10 +76,12 @@ public final class HttpUtil {
 				throw new RuntimeException("初始化失败", e);
 			}
 		}
+
 	}
 
 	/**
 	 * 获取连接对象
+	 *
 	 * @return 连接资源
 	 * @throws InterruptedException 线程如果一直拿不到连接最多重试三次就会被中断
 	 */
@@ -89,7 +89,7 @@ public final class HttpUtil {
 		if (httpClients.size() > 0) {
 			HttpClient httpClient = httpClients.removeFirst();
 			return httpClient;
-		} else if (initialPoolSize < maxSize){
+		} else if (initialPoolSize < maxSize) {
 			HttpClient httpClient = getResource();
 			return httpClient;
 		} else {
@@ -107,7 +107,8 @@ public final class HttpUtil {
 	}
 
 	/**
-	 *  释放对HttpClient资源的占用,重新放回连接池
+	 * 释放对HttpClient资源的占用,重新放回连接池
+	 *
 	 * @param httpClient 连接资源
 	 */
 	public static void close(HttpClient httpClient) {
@@ -131,7 +132,7 @@ public final class HttpUtil {
 				System.out.println(client);
 				close(client);
 			}
-		} catch (Throwable throwable){
+		} catch (Throwable throwable) {
 			throwable.printStackTrace();
 		}
 		System.out.println(httpClients.size());
@@ -139,13 +140,10 @@ public final class HttpUtil {
 	}
 
 
-
 	public static String call(String url) {
 
 		return "";
 	}
-
-
 
 
 }
